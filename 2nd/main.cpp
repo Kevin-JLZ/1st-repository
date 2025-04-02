@@ -4,19 +4,33 @@ using namespace std;
 
 int main()
 {
-    //Tipos de datos basicos
-    /*
-        Para trabajar con numeros enteros se utilizan los tipos
-        - short
-        - int
-        - long
-        - long long
+    cout << "Ingrese una cadena" << endl;
+    string cadena;
+    getline(cin, cadena);
 
-        Para declarar una variable Tipo Nombre_variable
-    */
+    int len = cadena.length();
 
-    int val; //Declarando una variable de tipo entero llamada val
-    val = 10;
-    cout << "El valor de val es: " << val << endl;
+    int i{0};
+    int a{0};
+
+    while(i < len/2)
+    {
+        if(cadena.at(a) == cadena.at(len-(a+1))){
+            a++;
+        }
+        else{
+            i = 20;
+        }
+        i++;
+    }
+
+    if(i >= 20){
+        cout << "No es un palindromo" << endl;
+    }
+    else{
+        cout << "Es un palindromo" << endl;
+    }
+
+
     return 0;
 }
