@@ -16,17 +16,15 @@ int main()
     int len = cadena.length();
     int len_palabra = palabra.length();
     cout << len << " y " << len_palabra << endl;
-    int i{0};
-    int j{0};
 
     int a{0};
 
     int contador{0};
 
-    while(i < len)
+    for(int i = 0; i < len; i++)
     {
         if(cadena.at(i) == palabra.at(0)){
-                while(j < len_palabra)
+                while(int j = 0; j < len_palabra; j++)
                 {
                     if(cadena.at(i+j) == palabra.at(j)){
                         a++;
@@ -34,14 +32,12 @@ int main()
                             contador++;
                         }
                     }
-                    j++;
                 }
                 //cout << "j = " << j << endl;
                 j = 0;
                 a = 0;
                 //cout << "comprobacion: " << i << endl;
         }
-        i++;
     }
 
     if(contador == 1){
