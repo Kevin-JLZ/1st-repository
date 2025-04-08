@@ -7,9 +7,6 @@ int main()
 
     int num{0};
     cin >> num;
-
-    int cantidad = (num*2) - 1;
-
     char a = '*';
 
     cout << endl;
