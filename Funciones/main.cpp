@@ -44,14 +44,15 @@ int main()
 
     for(int primo = 0; primo < 20; )
     {
-        bool comp_prim = eval_prim;
+        bool comp_prim = eval_prim(primo);
         if(comp_prim == true)
         {
-            bool comp_mult = eval_mult;
+            bool comp_mult = eval_mult(numero, primo);
             if(comp_mult == true)
             {
                 cout << numero << " es multiplo de: " << primo << endl;
             }
+            primo++;
         }
     }
 
