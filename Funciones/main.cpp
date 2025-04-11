@@ -25,7 +25,7 @@ bool eval_prim(int n)
 
 bool eval_mult(int numero, int primo)
 {
-    if(primo%numero == 0)
+    if(numero%primo == 0)
     {
         return true;
     }
@@ -39,21 +39,18 @@ bool eval_mult(int numero, int primo)
 int main()
 {
     int numero{0};
-    cout << "Ingrese un numero: " << endl;
-    cin >> numero;
+    cout << "Ingrese un numero: "; cin >> numero;
 
     for(int primo = 0; primo < 20; )
     {
-        bool comp_prim = eval_prim(primo);
-        if(comp_prim == true)
+        if(eval_prim(primo))
         {
-            bool comp_mult = eval_mult(numero, primo);
-            if(comp_mult == true)
+            if(eval_mult(numero, primo))
             {
                 cout << numero << " es multiplo de: " << primo << endl;
             }
-            primo++;
         }
+        primo++;
     }
 
 
