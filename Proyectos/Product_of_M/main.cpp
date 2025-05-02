@@ -36,11 +36,11 @@ void deleteMatrix(int** matrix, int height) {
     delete[] matrix;
 }
 
-void productMatrix(int** C, int** A, int** B, int A_height, int B_width) {
+void productMatrix(int** C, int** A, int** B, int A_height, int A_width, int B_width) {
     for (int i = 0; i < A_height; i++) {
         for (int j = 0; j < B_width; j++) {
             int temp = 0;
-            for (int k = 0; k < A_height; k++) {
+            for (int k = 0; k < A_width; k++) {
                 temp += *(*(A + i) + k) * *(*(B + k) + j);
             }
             *(*(C + i) + j) = temp;
@@ -90,7 +90,7 @@ int main()
     
     //Multiplicando Matrices A y B
     cout << "The product of A and B is:   " << endl;
-    productMatrix(C, A, B, A_height, B_width);
+    productMatrix(C, A, B, A_height, A_width, B_width);
 
     printMatrix(C, A_height, B_width);
 
@@ -102,3 +102,4 @@ int main()
 
     return 0;
 }
+
