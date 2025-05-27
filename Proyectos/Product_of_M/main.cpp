@@ -31,7 +31,7 @@ int** createMatrix(int height, int width) {
 
 void deleteMatrix(int** matrix, int height) {
     for (int i = 0; i < height; i++) {
-        delete[] matrix[i]; 
+        delete[] matrix[i];
     }
     delete[] matrix;
 }
@@ -45,6 +45,16 @@ void productMatrix(int** C, int** A, int** B, int A_height, int A_width, int B_w
             }
             *(*(C + i) + j) = temp;
         }
+    }
+}
+
+bool comprobador(int A_height, int B_width){
+    if(A_height == B_width){
+        cout << "Matrix accepted" << endl;
+        return true;
+    }else{
+        cout << "Unable to make product" << endl;
+        return false;
     }
 }
 
@@ -84,22 +94,22 @@ int main()
     //Mostrar valores
     printMatrix(B, B_height, B_width);
 
+    if(comprobador(A_height, B_width) == true){
+        //Creando nueva matriz
+        int** C = createMatrix(A_height, B_width);
 
-    //Creando nueva matriz
-    int** C = createMatrix(A_height, B_width);
-    
-    //Multiplicando Matrices A y B
-    cout << "The product of A and B is:   " << endl;
-    productMatrix(C, A, B, A_height, A_width, B_width);
+        //Multiplicando Matrices A y B
+        cout << "The product of A and B is:   " << endl;
+        productMatrix(C, A, B, A_height, A_width, B_width);
 
-    printMatrix(C, A_height, B_width);
+        printMatrix(C, A_height, B_width);
 
 
-    //Liberando memoria
+        //Liberando memoria
         deleteMatrix(A, A_height);
         deleteMatrix(B, B_height);
         deleteMatrix(C, A_height);
 
+    }
     return 0;
 }
-
