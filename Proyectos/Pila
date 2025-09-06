@@ -1,0 +1,63 @@
+#include <iostream>
+using namespace std;
+
+class Pila
+{
+    int A[10];
+    int* top = nullptr;
+    public:
+        bool push(int val);
+        bool pop(int& val);
+        
+        bool vacio();
+        bool lleno();
+};
+
+bool Pila::vacio(){
+    if(!top)
+        return true;
+    else
+        return false;
+}
+
+bool Pila::lleno(){
+    return top A == 9;
+}
+
+bool Pila::push(int val){
+    if(lleno())
+        return false;
+    else{
+        if(top)
+            top++;
+        else
+            top = A;
+        *top = val;
+        return true;
+    }
+}
+
+bool Pila::pop(int &val){
+    if(vacio())
+        return false;
+    else{
+        val = *top;
+        top--;
+        if(top < A)
+            top = nullptr;
+        return true;
+    }
+}
+
+
+
+int main() {
+    Pila p;
+    for(int i = 0; i < 10; i++){
+        p.A + i = i + 1;
+        cout << p.A + i << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
